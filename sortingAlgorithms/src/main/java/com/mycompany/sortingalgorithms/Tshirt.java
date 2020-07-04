@@ -5,48 +5,47 @@
  */
 package com.mycompany.sortingalgorithms;
 
-import java.util.List;
-
 /**
  *
  * @author vatso
  */
 public class Tshirt implements Comparable<Tshirt> {
 
-    private final Color c;
-    private final Fabric f;
-    private final Size s;
+	private final Color c;
+	private final Fabric f;
+	private final Size s;
 
-   
+	public Tshirt(Color c, Fabric f, Size s) {
+		this.c = c;
+		this.f = f;
+		this.s = s;
+	}
 
-    public Tshirt(Color c, Fabric f, Size s) {
-        this.c = c;
-        this.f = f;
-        this.s = s;
-    }
+	@Override
+	public String toString() {
+		return "TShirt{" + "c=" + c + ", s=" + s + ", f=" + f + '}';
+	}
 
-    @Override
-    public String toString() {
-        return "TShirt{" + "c=" + c + ", s=" + s + ", f=" + f + '}';
-    }
+	public Color getC() {
+		return c;
+	}
 
-   
+	public Size getS() {
+		return s;
+	}
 
-    public Color getC() {
-        return c;
-    }
+	public Fabric getF() {
+		return f;
+	}
 
-    public Size getS() {
-        return s;
-    }
-
-    public Fabric getF() {
-        return f;
-    }
-
-    @Override
-    public int compareTo(Tshirt o) {
-        throw new UnsupportedOperationException("Not supported yet."); 
-    }
+	@Override
+	public int compareTo(Tshirt o) {
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
+	
+	
+	
+	
+	
 
 }

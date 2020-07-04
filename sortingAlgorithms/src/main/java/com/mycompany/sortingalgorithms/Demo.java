@@ -15,73 +15,74 @@ import java.util.Scanner;
  */
 public class Demo {
 
-    
-    public static void main(String[] args) throws IOException {
-        
-       
-        Tshirt[] tshirtarray = TshirtUtill.makeTshirts(40);
-         
+	public static void main(String[] args) throws IOException {
 
-        TshirtSizeComparator tshirtsizecomparator = new TshirtSizeComparator();
+		Tshirt[] tshirtarray = TshirtUtill.makeTshirts(40);
 
-        TshirtColorComparator tshirtcolorcomparator = new TshirtColorComparator();
+		TshirtSizeComparator tshirtsizecomparator = new TshirtSizeComparator();
 
-        TshirtFabricComparator tshirtFabricComparator = new TshirtFabricComparator();
+		TshirtColorComparator tshirtcolorcomparator = new TshirtColorComparator();
 
-        TshirtSortBySizeColorAndFabric tshirtSortBySizeColorAndFAbric = new TshirtSortBySizeColorAndFabric();
+		TshirtFabricComparator tshirtFabricComparator = new TshirtFabricComparator();
 
-        
-        
+		TshirtSortBySizeColorAndFabric tshirtSortBySizeColorAndFAbric = new TshirtSortBySizeColorAndFabric();
 
-        Scanner sc = new Scanner(System.in);
+		System.out.println();
+		Scanner sc = new Scanner(System.in);
 
-        int menuChoice;
-     do {
-        menuChoice = sc.nextInt();
-        switch (menuChoice) {
+		TshirtUtill.sortOptions();
+		int menuChoice;
+		do {
+			
+			menuChoice = sc.nextInt();
+			switch (menuChoice) {
 
-            case 1:
+			case 1:
+				System.out.println(Arrays.toString(tshirtarray));
+				break;
+			case 2:
+				Tshirt[] sortedSizeArrayAsc = AlgorithmShorting.bubbleSort(tshirtarray, tshirtsizecomparator);
+				System.out.println(Arrays.toString(sortedSizeArrayAsc));
+				break;
+			case 3:
+				Tshirt[] sortedSizeArrayDesc = AlgorithmShorting.bubbleSort(tshirtarray,
+						tshirtsizecomparator.reversed());
+				System.out.println(Arrays.toString(sortedSizeArrayDesc));
+				break;
+			case 4:
+				Tshirt[] sortedColorAsc = AlgorithmShorting.quicksort(tshirtarray, 0, 39, tshirtcolorcomparator);
+				System.out.println(Arrays.toString(sortedColorAsc));
+				break;
 
-                System.out.println(Arrays.toString(tshirtarray));
-                break;
-            case 2:
-                Tshirt[] sortedSizeArrayAsc = AlgorithmShorting.bubbleSort(tshirtarray, tshirtsizecomparator);
-                System.out.println(Arrays.toString(sortedSizeArrayAsc));
-                break;
-            case 3:
-                Tshirt[] sortedSizeArrayDesc = AlgorithmShorting.bubbleSort(tshirtarray, tshirtsizecomparator.reversed());
-                System.out.println(Arrays.toString(sortedSizeArrayDesc));
-                break;
-            case 4:
-                Tshirt[] sortedColorAsc = AlgorithmShorting.quicksort(tshirtarray, 0, 39, tshirtcolorcomparator);
-                System.out.println(Arrays.toString(sortedColorAsc));
-                break;
-          
-            case 5:
-                Tshirt[] sortedColorDesc = AlgorithmShorting.quicksort(tshirtarray, 0, 39, tshirtcolorcomparator.reversed());
-                System.out.println(Arrays.toString(sortedColorDesc));
-                break;
-            case 6:
-                Tshirt[] sortedFabricAsc = AlgorithmShorting.quicksort(tshirtarray, 0, 39, tshirtFabricComparator);
-                System.out.println(Arrays.toString(sortedFabricAsc));
-                break;
-            case 7:
-                Tshirt[] sortedFabricDesc = AlgorithmShorting.quicksort(tshirtarray, 0, 39, tshirtFabricComparator.reversed());
-                System.out.println(Arrays.toString(sortedFabricDesc));
-                break;
-            case 8:
-                Tshirt[] sortedbySizeColorAndFabricAsc = AlgorithmShorting.quicksort(tshirtarray, 0, 39, tshirtSortBySizeColorAndFAbric);
-                System.out.println(Arrays.toString(sortedbySizeColorAndFabricAsc));
-                break;
-            case 9:
-                Tshirt[] sortedbySizeColorAndFabricDesc = AlgorithmShorting.quicksort(tshirtarray, 0, 39, tshirtSortBySizeColorAndFAbric.reversed());
-                System.out.println(Arrays.toString(sortedbySizeColorAndFabricDesc));
-                break;
-            default:
-                System.out.println("Invalid input");
-                break;
-        }
-       } while (menuChoice < 9);
-    }
+			case 5:
+				Tshirt[] sortedColorDesc = AlgorithmShorting.quicksort(tshirtarray, 0, 39,
+						tshirtcolorcomparator.reversed());
+				System.out.println(Arrays.toString(sortedColorDesc));
+				break;
+			case 6:
+				Tshirt[] sortedFabricAsc = AlgorithmShorting.quicksort(tshirtarray, 0, 39, tshirtFabricComparator);
+				System.out.println(Arrays.toString(sortedFabricAsc));
+				break;
+			case 7:
+				Tshirt[] sortedFabricDesc = AlgorithmShorting.quicksort(tshirtarray, 0, 39,
+						tshirtFabricComparator.reversed());
+				System.out.println(Arrays.toString(sortedFabricDesc));
+				break;
+			case 8:
+				Tshirt[] sortedbySizeColorAndFabricAsc = AlgorithmShorting.quicksort(tshirtarray, 0, 39,
+						tshirtSortBySizeColorAndFAbric);
+				System.out.println(Arrays.toString(sortedbySizeColorAndFabricAsc));
+				break;
+			case 9:
+				Tshirt[] sortedbySizeColorAndFabricDesc = AlgorithmShorting.quicksort(tshirtarray, 0, 39,
+						tshirtSortBySizeColorAndFAbric.reversed());
+				System.out.println(Arrays.toString(sortedbySizeColorAndFabricDesc));
+				break;
+			default:
+				System.out.println("Invalid input");
+				break;
+			}
+		} while (menuChoice < 9);
+	}
 
 }
